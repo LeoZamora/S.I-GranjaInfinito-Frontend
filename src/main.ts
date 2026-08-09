@@ -12,6 +12,9 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import router from './router'
 
+// COMPONENTS
+import { VDateInput } from 'vuetify/components/VDateInput'
+
 // PINIA
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia'
@@ -22,7 +25,10 @@ const app = createApp(App)
 app.use(pinia)
 
 const vuetify = createVuetify({
-    components,
+    components: {
+        ...components,
+        VDateInput
+    },
     directives,
     theme: {
         defaultTheme: 'light',

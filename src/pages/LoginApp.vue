@@ -2,14 +2,14 @@
 <template>
   <!-- Contenedor Principal (Box sx en React) -->
   <div class="login-bg d-flex align-center justify-center">
-    <v-container fluid class="fill-height">
-      <v-row justify="center" align="center" density="compact">
-        <v-col cols="12" sm="8" md="8" lg="4">
-          <v-card width="100%" class="pa-4 overflow-visible elevation-4 border position-relative">
+    <v-container fluid class="fill-height d-flex justify-center align-center">
+      <v-row justify="center" align="center" density="comfortable">
+        <v-col cols="12" sm="6" md="6" lg="4" class="d-flex flex-column align-center justify-center">
+          <v-card width="400px" elevation="8" class="pa-4 overflow-visible border position-relative">
             <div class="header-icon-container">
-              <!-- <v-avatar color="indigo-darken-4" size="64" class="elevation-3">
+              <v-avatar id="clock" color="indigo-darken-4" size="64" class="elevation-3">
                 <v-icon icon="mdi-lock-outline" size="32" color="white"></v-icon>
-              </v-avatar> -->
+              </v-avatar>
               <h2 class="text-h5 mb-0 font-weight-black mt-4 text-uppercase tracking-wider">
                 Iniciar Sesión
               </h2>
@@ -139,6 +139,11 @@ async function onSubmit() {
   flex-direction: column;
   align-items: center;
   /* margin-top: -50px; */
+}
+
+#clock {
+  position: absolute;
+  top: -30px;
 }
 
 .tracking-wider {
