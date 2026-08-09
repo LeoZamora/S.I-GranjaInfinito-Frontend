@@ -23,7 +23,41 @@ const routes = [
             requiresAuth: false,
             protected: false,
         }
-    }
+    },
+    {
+        path: '/ejemplares',
+        name: 'Ejemplares',
+        component: () => import('@/modules/ejemplares/EjemplaresModule.vue'),
+        meta: {
+            title: 'Ejemplares | S.I Granja Infinito',
+            keepAlive: true,
+            requiresAuth: true,
+            protected: true,
+        }
+    },
+    {
+        path: '/ejemplares/new',
+        name: 'Crear Ejemplar',
+        component: () => import('@/modules/ejemplares/CreateEjemplar.vue'),
+        meta: {
+            title: 'Ejemplares | S.I Granja Infinito',
+            keepAlive: true,
+            requiresAuth: true,
+            protected: true,
+        }
+    },
+    {
+        path: '/ejemplares/:codigo',
+        name: 'Detalle Ejemplar',
+        component: () => import('@/modules/ejemplares/DetailsEjemplares.vue'),
+        props: true,
+        meta: {
+            title: 'Ejemplares | S.I Granja Infinito',
+            keepAlive: true,
+            requiresAuth: true,
+            protected: true,
+        }
+    },
 ]
 
 const router = createRouter({
@@ -33,7 +67,7 @@ const router = createRouter({
     ]
 })
 
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
     const store = useStore()
     const defaultTitle: any = 'S.I Granja Infinito'
     document.title = to.meta?.title ?? defaultTitle

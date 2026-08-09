@@ -24,8 +24,7 @@
                 <v-icon :icon="card.icon"></v-icon>
               </v-avatar>
             </div>
-            
-            <!-- Sparkline Component -->
+
             <v-sparkline
               :model-value="card.data"
               :color="card.color"

@@ -3,18 +3,22 @@ import JWTDecoder, { type CustomJwtPayload } from "./common/utils/jwtDecoder";
 
 export const useStore = defineStore('store', {
     state: () => ({
-        token: '',
+        access_token: '',
     }),
 
     getters: {
         decode(state): CustomJwtPayload | null {
-            if(!state.token) return null
+            if(!state.access_token) return null
 
             try {
-                return new JWTDecoder(state.token).decodeToken()
+                return new JWTDecoder(state.access_token).decodeToken()
             } catch (error) {
                 return null
             }
+        },
+
+        nameUser(): string {
+            return this.decode?.name ?? ''
         },
 
         expMs(): number {
@@ -26,28 +30,17 @@ export const useStore = defineStore('store', {
         },
 
         isLoggedIn(): boolean {
-            const valid = this.decode === null ? false : true
-
-            return valid
+            return  this.decode !== null
         },
     },
 
     actions: {
         login(token: string) {
-            this.token = token
+            this.access_token = token
         },
 
         logout() {
-            this.token = ''
-        },
-
-        ensureSessionValid() {
-            if (this.isExpired) {
-                this.logout()
-                return false
-            }
-
-            return true
+            this.access_token = ''
         },
 
     },
