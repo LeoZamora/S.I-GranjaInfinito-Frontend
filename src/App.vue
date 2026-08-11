@@ -36,17 +36,20 @@
         <v-divider class="mx-4 mt-4" />
 
         <v-container class="pt-2">
-          <v-list density="compact" v-model:selected="data.selectedItems" :mandatory="true" nav
-            color="indigo-darken-4">
+          <v-list density="compact" nav>
             <v-list-subheader class="font-weight-bold text-title" style="font-size: 14px;">
               Gestión General
             </v-list-subheader>
 
-            <v-list-item v-for="(item, i) in data.optionsDrawer" :key="i"
-              :prepend-icon="item.icon" density="compact"
-              rounded="lg" :value="item.name" :title="item.name"
+            <v-list-item
+              v-for="(item, i) in data.optionsDrawer"
+              :key="i"
+              :prepend-icon="item.icon"
+              rounded="lg"
+              :value="item.name"
+              :title="item.name"
               :to="item.to"
-              active-class="font-weight-bold"
+              color="indigo-darken-4"
             >
             </v-list-item>
           </v-list>
@@ -137,6 +140,11 @@ const data = reactive({
       name: 'Ejemplares',
       to: '/ejemplares',
       icon: 'mdi-pig'
+    },
+    {
+      name: 'Insumos',
+      to: '/insumos',
+      icon: 'mdi-package-variant-closed'
     }
   ],
   drawer: true,
@@ -158,7 +166,7 @@ async function logout() {
 // HOOKS
 </script>
 
-<style scoped >
+<style>
 /*:deep(.v-list-item--active) {
   border-left: 4px solid;
   border-top-left-radius: 5px !important;
@@ -170,9 +178,9 @@ async function logout() {
   font-family: 'Poppins',serif !important;
 }
 
-:deep() .v-list--density-compact .v-list-subheader {
+/*:deep() .v-list--density-compact .v-list-subheader {
   min-height: 12px !important;
-}
+}*/
 
 :deep() .v-list-item--density-compact.v-list-item--one-line {
   min-height: 38px;
@@ -180,5 +188,25 @@ async function logout() {
 
 .weight {
   font-weight: bold !important;
+}
+
+:deep()
+.v-table
+.v-table__wrapper
+> table
+> tbody
+> tr
+> td:not(:last-child),
+.v-table
+.v-table__wrapper
+> table
+> tbody
+> tr
+> th:not(:last-child) {
+  border-bottom: 1px solid
+  rgba(
+      var(--v-border-color),
+      var(--v-border-opacity)
+  );
 }
 </style>

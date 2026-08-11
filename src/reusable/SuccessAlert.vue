@@ -37,7 +37,7 @@ export default {
     success: {
       type: Boolean,
       required: true
-    },
+    }
   },
 
   setup(props) {

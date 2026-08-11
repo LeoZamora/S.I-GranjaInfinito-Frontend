@@ -17,8 +17,18 @@ export const useStore = defineStore('store', {
             }
         },
 
+        accessToken(state): string | null {
+            if (!state.access_token) return null;
+
+            try {
+                return state.access_token
+            } catch (e) {
+                return null
+            }
+        },
+
         nameUser(): string {
-            return this.decode?.name ?? ''
+            return this.decode?.username ?? ''
         },
 
         expMs(): number {
