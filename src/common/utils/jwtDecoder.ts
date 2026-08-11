@@ -2,9 +2,9 @@ import { jwtDecode } from "jwt-decode"
 
 export interface CustomJwtPayload {
     name?: string
-    usuario?: string
+    username: string
+    rolId: number
     permisos: number[]
-    modulos: number[]
     iss?: string
     sub?: string
     aud?: string[] | string

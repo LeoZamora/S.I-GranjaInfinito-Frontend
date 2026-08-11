@@ -110,7 +110,7 @@ async function onSubmit() {
 
   if (valid) {
     const response = await requestHttp.postLogin({
-      "usuario": data.usuario,
+      "username": data.usuario,
       "password": data.pssword
     })
 

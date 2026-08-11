@@ -25,7 +25,7 @@ export default defineConfig({
     })
   ],
 
-  base: '/farm',
+  // base: '/farm',
 
   server: {
     port: 3025

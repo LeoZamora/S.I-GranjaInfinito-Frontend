@@ -1,5 +1,5 @@
 export interface Login {
-    usuario: string;
+    username: string;
     password: string
 }
 
@@ -12,6 +12,16 @@ export interface DataUserToken {
 }
 
 export interface ListarEjemplares {
+    exito: true
+    datos: []
+    meta: {
+        total: number
+        pagina: number
+        porPagina: number
+    }
+}
+
+export interface ListarPagination {
     exito: true
     datos: []
     meta: {

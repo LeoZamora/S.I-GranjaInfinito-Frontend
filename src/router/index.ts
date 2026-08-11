@@ -47,12 +47,35 @@ const routes = [
         }
     },
     {
-        path: '/ejemplares/:codigo',
+        path: '/ejemplar/:id',
         name: 'Detalle Ejemplar',
         component: () => import('@/modules/ejemplares/DetailsEjemplares.vue'),
         props: true,
         meta: {
             title: 'Ejemplares | S.I Granja Infinito',
+            keepAlive: true,
+            requiresAuth: true,
+            protected: true,
+        }
+    },
+    {
+        path: '/ejemplares/:id',
+        name: 'Editar Ejemplar',
+        component: () => import('@/modules/ejemplares/CreateEjemplar.vue'),
+        props: true,
+        meta: {
+            title: 'Editar Ejemplar | S.I Granja Infinito',
+            keepAlive: false,
+            requiresAuth: true,
+            protected: true,
+        }
+    },
+    {
+        path: '/insumos',
+        name: 'Insumos',
+        component: () => import('@/modules/insumos/InsumosModule.vue'),
+        meta: {
+            title: 'Insumos | S.I Granja Infinito',
             keepAlive: true,
             requiresAuth: true,
             protected: true,
